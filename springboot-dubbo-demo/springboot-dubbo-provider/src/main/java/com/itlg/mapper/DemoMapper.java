@@ -1,8 +1,8 @@
-package com.wyj.mapper;
+package com.itlg.mapper;
 
 
 
-import com.wyj.entity.po.Message;
+import com.itlg.entity.po.Message;
 
 import java.util.List;
 

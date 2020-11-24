@@ -1,4 +1,4 @@
-package com.wyj;
+package com.itlg;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
-@MapperScan(basePackages = {"com.wyj.mapper"})
+@MapperScan(basePackages = {"com.itlg.mapper"})
 @ImportResource("classpath:dubbo-provider.xml")
 public class ServiceApplication {
 

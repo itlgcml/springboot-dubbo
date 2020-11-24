@@ -1,6 +1,6 @@
-package com.wyj.service;
+package com.itlg.service;
 
-import com.wyj.entity.po.Message;
+import com.itlg.entity.po.Message;
 
 import java.util.List;
 

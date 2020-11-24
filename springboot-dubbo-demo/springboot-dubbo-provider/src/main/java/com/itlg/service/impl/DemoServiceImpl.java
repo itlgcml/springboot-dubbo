@@ -1,8 +1,8 @@
-package com.wyj.service.impl;
+package com.itlg.service.impl;
 
-import com.wyj.entity.po.Message;
-import com.wyj.mapper.DemoMapper;
-import com.wyj.service.DemoService;
+import com.itlg.entity.po.Message;
+import com.itlg.mapper.DemoMapper;
+import com.itlg.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

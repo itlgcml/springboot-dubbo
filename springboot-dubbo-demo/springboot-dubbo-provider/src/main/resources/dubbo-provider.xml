@@ -19,7 +19,7 @@
     <!-- 这里是具体实现类,id和上面的暴露的服务接口ref要一致,dubbo就是通过这个来注册对应的服务 -->
     <!-- 同模块的registry使用local，不同模块的使用远程的register -->
     <!--<dubbo:service registry="register" interface="com.wyj.service.DemoService" ref="demoService"/>-->
-    <dubbo:service registry="local" interface="com.wyj.service.DemoService" ref="demoService"/>
+    <dubbo:service registry="local" interface="com.itlg.service.DemoService" ref="demoService"/>
     <!-- 消费dubbo服务 -->
     <!--<dubbo:reference registry="register" interface="" id=""/>-->
 </beans>

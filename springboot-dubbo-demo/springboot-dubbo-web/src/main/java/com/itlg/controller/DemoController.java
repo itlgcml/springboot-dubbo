@@ -1,10 +1,9 @@
-package com.wyj.controller;
+package com.itlg.controller;
 
-import com.wyj.entity.po.Message;
-import com.wyj.entity.vo.ApiResponse;
-import com.wyj.service.DemoService;
+import com.itlg.entity.po.Message;
+import com.itlg.entity.vo.ApiResponse;
+import com.itlg.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

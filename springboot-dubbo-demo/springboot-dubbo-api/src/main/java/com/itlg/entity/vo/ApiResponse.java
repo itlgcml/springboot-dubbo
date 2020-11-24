@@ -1,4 +1,4 @@
-package com.wyj.entity.vo;
+package com.itlg.entity.vo;
 
 import java.io.Serializable;
 

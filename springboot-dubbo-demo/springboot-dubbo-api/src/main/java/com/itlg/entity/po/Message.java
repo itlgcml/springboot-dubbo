@@ -1,4 +1,4 @@
-package com.wyj.entity.po;
+package com.itlg.entity.po;
 
 import java.io.Serializable;
 
