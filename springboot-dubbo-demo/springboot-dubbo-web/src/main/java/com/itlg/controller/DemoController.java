@@ -15,8 +15,7 @@ public class DemoController {
 
     @Autowired
     private DemoService demoService;
-    @Autowired
-    private TbUserService tbuserService;
+
 
 
     @RequestMapping(value = "/query")
@@ -24,9 +23,6 @@ public class DemoController {
          return demoService.findMessage();
     }
 
-    @RequestMapping(value = "/e")
-    public List<TbUserBO> demo1() {
-        return tbuserService.findAllUser();
-    }
+
 
 }
