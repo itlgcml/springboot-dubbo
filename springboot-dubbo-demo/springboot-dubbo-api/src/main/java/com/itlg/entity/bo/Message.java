@@ -1,4 +1,4 @@
-package com.itlg.entity.po;
+package com.itlg.entity.bo;
 
 import java.io.Serializable;
 

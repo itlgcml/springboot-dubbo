@@ -1,8 +1,9 @@
 package com.itlg.controller;
 
-import com.itlg.entity.po.Message;
-import com.itlg.entity.vo.ApiResponse;
+import com.itlg.entity.bo.Message;
+import com.itlg.entity.bo.mybatisplus.TbUserBO;
 import com.itlg.service.DemoService;
+import com.itlg.service.mybatisplus.TbUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,16 +15,18 @@ public class DemoController {
 
     @Autowired
     private DemoService demoService;
+    @Autowired
+    private TbUserService tbuserService;
+
 
     @RequestMapping(value = "/query")
-    public ApiResponse demo() {
-        try {
-            List<Message> messageList = demoService.findMessage();
-            return new ApiResponse(200, "操作成功", messageList);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ApiResponse(500, "系统异常");
-        }
+    public List<Message> demo() {
+         return demoService.findMessage();
+    }
+
+    @RequestMapping(value = "/e")
+    public List<TbUserBO> demo1() {
+        return tbuserService.findAllUser();
     }
 
 }

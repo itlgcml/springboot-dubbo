@@ -1,6 +1,6 @@
 package com.itlg.service.impl;
 
-import com.itlg.entity.po.Message;
+import com.itlg.entity.bo.Message;
 import com.itlg.mapper.DemoMapper;
 import com.itlg.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
