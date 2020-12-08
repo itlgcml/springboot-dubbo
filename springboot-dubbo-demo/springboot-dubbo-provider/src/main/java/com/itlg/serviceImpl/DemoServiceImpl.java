@@ -1,4 +1,4 @@
-package com.itlg.service.impl;
+package com.itlg.serviceImpl;
 
 import com.itlg.entity.bo.Message;
 import com.itlg.mapper.DemoMapper;

@@ -1,5 +1,6 @@
-package com.itlg.service.impl.mybatisplus;
+package com.itlg.serviceImpl.mybatisplus;
 
+import com.baomidou.mybatisplus.extension.api.R;
 import com.itlg.entity.bo.mybatisplus.TbUserBO;
 import com.itlg.mapper.mybatisplus.TbUserMapper;
 import com.itlg.service.mybatisplus.TbUserService;
@@ -9,12 +10,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service("tbUserService")
-public class TbUserServiceImpl  implements TbUserService {
+public class TbUserServiceImpl implements TbUserService {
     @Autowired
     private TbUserMapper userMapper;
 
     @Override
-    public List<TbUserBO> findAllUser() {
-        return userMapper.selectList(null);
+    public R<List<TbUserBO>> findAllUser() {
+        return R.ok(userMapper.selectList(null));
     }
 }

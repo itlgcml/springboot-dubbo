@@ -1,5 +1,6 @@
 package com.itlg.controller.mybatisplus;
 
+import com.baomidou.mybatisplus.extension.api.R;
 import com.itlg.entity.bo.mybatisplus.TbUserBO;
 import com.itlg.service.mybatisplus.TbUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class TbUserController {
     private TbUserService tbuserService;
 
     @RequestMapping(value = "/e")
-    public List<TbUserBO> demo1() {
+    public R<List<TbUserBO>> demo1() {
         return tbuserService.findAllUser();
     }
 }

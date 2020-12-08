@@ -18,6 +18,7 @@
         <module>springboot-dubbo-api</module>
         <module>springboot-dubbo-provider</module>
         <module>springboot-dubbo-web</module>
+        <module>spring-dubbo-common</module>
     </modules>
     
 </project>
