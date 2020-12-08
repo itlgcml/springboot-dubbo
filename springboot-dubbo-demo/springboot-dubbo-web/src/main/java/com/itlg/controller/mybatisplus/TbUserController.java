@@ -15,8 +15,8 @@ public class TbUserController {
     @Autowired
     private TbUserService tbuserService;
 
-    @RequestMapping(value = "/e")
-    public R<List<TbUserBO>> demo1() {
+    @RequestMapping(value = "/all")
+    public R<List<TbUserBO>> demo() {
         return tbuserService.findAllUser();
     }
 }
