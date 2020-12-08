@@ -1,5 +1,6 @@
 package com.itlg.controller.updown;
 
+import com.itlg.exception.R;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -10,12 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
+
 @RestController
 public class UploadController {
 
     @PostMapping("/springUpload")
-    public String springUpload(HttpServletRequest request) throws IllegalStateException, IOException {
-        long startTime = System.currentTimeMillis();
+    public R springUpload(HttpServletRequest request) throws IllegalStateException, IOException {
+        String str = System.getProperty("user.dir");
+        str = str + "/file";
+        File fileDir = new File(str);
+        if (!fileDir.exists()) {//如果文件夹不存在
+            fileDir.mkdir();//创建文件夹
+        }
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(
                 request.getSession().getServletContext());
         //检查form中是否有enctype="multipart/form-data"
@@ -27,15 +34,13 @@ public class UploadController {
             while (iter.hasNext()) {
                 //一次遍历所有文件
                 MultipartFile file = multiRequest.getFile(iter.next().toString());
-                System.out.println("================>"+file.getName());
                 if (file != null) {
-                    String path = "E:/" + file.getOriginalFilename();
+                    String path = str + "/" + file.getOriginalFilename();
                     //上传
                     file.transferTo(new File(path));
                 }
             }
-
         }
-        return "/success";
+        return R.success("文件创建成功");
     }
 }

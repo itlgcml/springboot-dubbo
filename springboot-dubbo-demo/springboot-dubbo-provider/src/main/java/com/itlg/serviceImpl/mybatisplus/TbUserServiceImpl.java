@@ -1,7 +1,7 @@
 package com.itlg.serviceImpl.mybatisplus;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.itlg.entity.bo.mybatisplus.TbUserBO;
+import com.itlg.exception.R;
 import com.itlg.mapper.mybatisplus.TbUserMapper;
 import com.itlg.service.mybatisplus.TbUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +16,6 @@ public class TbUserServiceImpl implements TbUserService {
 
     @Override
     public R<List<TbUserBO>> findAllUser() {
-        return R.ok(userMapper.selectList(null));
+        return R.success(userMapper.selectList(null));
     }
 }

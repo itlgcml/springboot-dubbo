@@ -14,6 +14,5 @@
     <dubbo:protocol name="${dubbo.protocol.name}"/>
     <!-- 生成远程服务代理，可以和本地bean一样调用 -->
     <!-- 同模块的registry使用local，不同模块的使用远程的register -->
-    <dubbo:reference registry="local" id="demoService" interface="com.itlg.service.DemoService"/>
     <dubbo:reference registry="local" id="tbUserService" interface="com.itlg.service.mybatisplus.TbUserService"/>
 </beans>

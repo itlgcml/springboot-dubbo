@@ -1,7 +1,7 @@
 package com.itlg.service.mybatisplus;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.itlg.entity.bo.mybatisplus.TbUserBO;
+import com.itlg.exception.R;
 
 import java.util.List;
 public interface TbUserService   {

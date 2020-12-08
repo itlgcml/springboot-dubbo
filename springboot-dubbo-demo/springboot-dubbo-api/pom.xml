@@ -32,6 +32,11 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.1.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.itlg</groupId>
+            <artifactId>spring-dubbo-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 
