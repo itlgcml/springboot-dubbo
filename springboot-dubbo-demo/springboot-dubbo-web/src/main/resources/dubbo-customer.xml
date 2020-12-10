@@ -15,4 +15,6 @@
     <!-- 生成远程服务代理，可以和本地bean一样调用 -->
     <!-- 同模块的registry使用local，不同模块的使用远程的register -->
     <dubbo:reference registry="local" id="tbUserService" interface="com.itlg.service.mybatisplus.TbUserService"/>
+    <dubbo:reference registry="local" id="userOrderBOService" interface="com.itlg.service.mybatisplus.UserOrderBOService" />
+
 </beans>

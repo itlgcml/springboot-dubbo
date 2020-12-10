@@ -1,6 +1,7 @@
 package com.itlg.serviceImpl.mybatisplus;
 
 import com.itlg.entity.bo.mybatisplus.TbUserBO;
+import com.itlg.entity.bo.mybatisplus.UserOrderBO;
 import com.itlg.exception.R;
 import com.itlg.mapper.mybatisplus.TbUserMapper;
 import com.itlg.service.mybatisplus.TbUserService;

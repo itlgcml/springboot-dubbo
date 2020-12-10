@@ -1,6 +1,7 @@
 package com.itlg.controller.updown;
 
 import com.itlg.exception.R;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 @RestController
+@Api(tags = "文件上传")
 public class UploadController {
 
     @PostMapping("/springUpload")

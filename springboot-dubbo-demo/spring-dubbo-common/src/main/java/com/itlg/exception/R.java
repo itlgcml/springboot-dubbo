@@ -1,14 +1,15 @@
 package com.itlg.exception;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.util.ObjectUtils;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Setter
 @Getter
+@NoArgsConstructor
 public class R<T> implements Serializable {
     private int status;
     private String message;

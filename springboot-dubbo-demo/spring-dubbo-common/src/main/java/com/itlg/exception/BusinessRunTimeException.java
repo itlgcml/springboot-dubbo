@@ -1,8 +1,10 @@
 package com.itlg.exception;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
 public class BusinessRunTimeException extends RuntimeException  {
 
     private CodeMsg codeMsg;

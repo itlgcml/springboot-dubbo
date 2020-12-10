@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itlg.mapper.mybatisplus.UserOrderBOMapper">
+    <resultMap id="BaseResultMap" type="com.itlg.entity.bo.mybatisplus.UserOrderBO">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="created" property="created" jdbcType="TIMESTAMP"/>
+        <result column="salt" property="salt" jdbcType="VARCHAR"/>
+        <collection property="orderList" ofType="com.itlg.entity.bo.mybatisplus.TbOrderBO">
+            <id column="order_id" property="orderId" jdbcType="BIGINT"/>
+            <result column="total_pay" property="totalPay" jdbcType="BIGINT"/>
+            <result column="actual_pay" property="actualPay" jdbcType="BIGINT"/>
+            <result column="promotion_ids" property="promotionIds" jdbcType="VARCHAR"/>
+            <result column="payment_type" property="paymentType" jdbcType="TINYINT"/>
+            <result column="post_fee" property="postFee" jdbcType="BIGINT"/>
+            <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+            <result column="shipping_name" property="shippingName" jdbcType="VARCHAR"/>
+            <result column="shipping_code" property="shippingCode" jdbcType="VARCHAR"/>
+            <result column="user_id" property="userId" jdbcType="VARCHAR"/>
+            <result column="buyer_message" property="buyerMessage" jdbcType="VARCHAR"/>
+            <result column="buyer_nick" property="buyerNick" jdbcType="VARCHAR"/>
+            <result column="buyer_rate" property="buyerRate" jdbcType="BIT"/>
+            <result column="receiver_state" property="receiverState" jdbcType="VARCHAR"/>
+            <result column="receiver_city" property="receiverCity" jdbcType="VARCHAR"/>
+            <result column="receiver_district" property="receiverDistrict" jdbcType="VARCHAR"/>
+            <result column="receiver_address" property="receiverAddress" jdbcType="VARCHAR"/>
+            <result column="receiver_mobile" property="receiverMobile" jdbcType="VARCHAR"/>
+            <result column="receiver_zip" property="receiverZip" jdbcType="VARCHAR"/>
+            <result column="receiver" property="receiver" jdbcType="VARCHAR"/>
+            <result column="invoice_type" property="invoiceType" jdbcType="INTEGER"/>
+            <result column="source_type" property="sourceType" jdbcType="INTEGER"/>
+        </collection>
+    </resultMap>
+
+    <select id="queryUserOrderBOPage" resultMap="BaseResultMap">
+        SELECT u.*,o.* FROM tb_user u
+        left join tb_order o on u.id=o.user_id
+    </select>
+
+</mapper>
