@@ -1,4 +1,4 @@
-package com.itlg.demo;
+package com.itlg.demo.excel;
 
 import lombok.Data;
 

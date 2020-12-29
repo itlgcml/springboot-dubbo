@@ -1,4 +1,4 @@
-package com.itlg.demo;
+package com.itlg.demo.excel;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -161,7 +161,6 @@ public class Excel {
         fw.write(sb.toString());
         fw.flush();
         fw.close();
-        File file = new File("d:/" + time + ".xls");
         return "SUCCESS";
     }
 }
