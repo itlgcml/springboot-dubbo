@@ -16,5 +16,5 @@
     <!-- 同模块的registry使用local，不同模块的使用远程的register -->
     <dubbo:reference registry="local" id="tbUserService" interface="com.itlg.service.mybatisplus.TbUserService"/>
     <dubbo:reference registry="local" id="userOrderBOService" interface="com.itlg.service.mybatisplus.UserOrderBOService" />
-
+    <dubbo:reference registry="local" id="TbTreeOrderBOService" interface="com.itlg.service.tree.TbTreeOrderBOService" />
 </beans>

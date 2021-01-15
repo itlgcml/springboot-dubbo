@@ -7,6 +7,7 @@ import com.itlg.service.mybatisplus.UserOrderBOService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class UserOrderBOServiceImpl implements UserOrderBOService {
 
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public R<List<UserOrderBO>> allUserOrder() {
         return R.success(userOrderBOMapper.queryUserOrderBOPage());
     }

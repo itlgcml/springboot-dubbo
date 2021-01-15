@@ -20,8 +20,9 @@
     <!-- 同模块的registry使用local，不同模块的使用远程的register -->
     <!--<dubbo:service registry="register" interface="com.wyj.service.DemoService" ref="demoService"/>-->
 
-    <dubbo:service registry="local" interface="com.itlg.service.mybatisplus.TbUserService" ref="tbUserService"/>
-    <dubbo:service registry="local" interface="com.itlg.service.mybatisplus.UserOrderBOService" ref="userOrderBOService"/>
+    <dubbo:service registry="local" interface="com.itlg.service.mybatisplus.TbUserService" ref="tbUserService" timeout="3000"/>
+    <dubbo:service registry="local" interface="com.itlg.service.mybatisplus.UserOrderBOService" ref="userOrderBOService" timeout="3000"/>
+    <dubbo:service registry="local" interface="com.itlg.service.tree.TbTreeOrderBOService" ref="tbTreeOrderBOService" timeout="3000"/>
     <!-- 消费dubbo服务 -->
     <!--<dubbo:reference registry="register" interface="" id=""/>-->
 </beans>
