@@ -3,7 +3,9 @@ package com.itlg.entity.Enum;
 import lombok.Data;
 import lombok.Getter;
 
-public enum BoolEnum {
+import java.io.Serializable;
+
+public enum BoolEnum implements Serializable {
     TRUE(true),
     FALSE(false);
 

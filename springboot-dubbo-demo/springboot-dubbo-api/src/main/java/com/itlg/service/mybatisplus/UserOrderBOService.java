@@ -1,14 +1,16 @@
 package com.itlg.service.mybatisplus;
 
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.itlg.entity.bo.mybatisplus.UserOrderBO;
-import com.itlg.exception.R;
+import com.itlg.excepion.R;
 
 import java.util.List;
 
 public interface UserOrderBOService {
+    /**
+     * mybatis一对多
+     * @return
+     */
     R<List<UserOrderBO>> allUserOrder();
 
 }

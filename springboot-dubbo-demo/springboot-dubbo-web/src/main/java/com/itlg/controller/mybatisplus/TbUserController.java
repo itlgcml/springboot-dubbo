@@ -2,7 +2,7 @@ package com.itlg.controller.mybatisplus;
 
 import com.itlg.entity.bo.mybatisplus.TbUserBO;
 import com.itlg.entity.bo.mybatisplus.UserOrderBO;
-import com.itlg.exception.R;
+import com.itlg.excepion.R;
 import com.itlg.service.mybatisplus.TbUserService;
 import com.itlg.service.mybatisplus.UserOrderBOService;
 import io.swagger.annotations.Api;
@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/mybatisPlus")
-@Api(tags = "mybatisPlus实例")
+@Api(tags = "mybatisPlus实例,查询所有用户含有aop")
 public class TbUserController {
 
     @Autowired

@@ -2,7 +2,7 @@ package com.itlg.serviceImpl.tree;
 
 import com.itlg.entity.bo.tree.TbTreeOrderBO;
 import com.itlg.entity.vo.TbTreeVO;
-import com.itlg.exception.R;
+import com.itlg.excepion.R;
 import com.itlg.mapper.tree.TbTreeOrderMapper;
 import com.itlg.service.tree.TbTreeOrderBOService;
 import com.itlg.unit.TreeToolUtils;
@@ -35,6 +35,8 @@ public class TbTreeOrderBOServiceImpl implements TbTreeOrderBOService {
             }
         });
         TreeToolUtils treeToolUtils = new TreeToolUtils(rootList, bodyList);
-        return R.success(treeToolUtils.getTree());
+        List<TbTreeVO> result = treeToolUtils.getTree();
+        System.out.println("===============>"+result.toString());
+        return R.success(result);
     }
 }

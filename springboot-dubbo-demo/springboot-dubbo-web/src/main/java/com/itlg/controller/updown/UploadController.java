@@ -5,8 +5,7 @@ import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.itlg.demo.pdf.Tables2;
-import com.itlg.exception.R;
+import com.itlg.excepion.R;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -56,7 +55,7 @@ public class UploadController {
 
 
 
-    public static final String DEST = "pdf/tables.pdf";
+    /*public static final String DEST = "pdf/tables.pdf";
     @PostMapping("/test")
     public void test(HttpServletResponse response) throws Exception {
         File file = new File(DEST);
@@ -277,7 +276,7 @@ public class UploadController {
         response.setHeader("Content-Disposition","attachment;filename=1.pdf");
         response.getOutputStream().write(byteArrayOutputStream.toByteArray());
 
-    }
+    }*/
 
 
 }

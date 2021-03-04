@@ -3,12 +3,13 @@ package com.itlg.unit;
 import com.itlg.entity.vo.TbTreeVO;
 import org.springframework.util.ObjectUtils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TreeToolUtils {
+public class TreeToolUtils implements Serializable {
     private List<TbTreeVO> rootList;//根节点
     private List<TbTreeVO> bodyList;//子节点
 

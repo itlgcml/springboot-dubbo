@@ -13,13 +13,11 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.0.RELEASE</version>
     </parent>
-
-
+    
     <modules>
         <module>springboot-dubbo-api</module>
         <module>springboot-dubbo-provider</module>
         <module>springboot-dubbo-web</module>
-        <module>spring-dubbo-common</module>
     </modules>
     
 </project>

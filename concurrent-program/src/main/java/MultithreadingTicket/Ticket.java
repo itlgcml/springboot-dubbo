@@ -10,31 +10,35 @@ import test.ThreadLg;
 @Slf4j
 public class Ticket implements Runnable {
 
-    private int total = 5;
+    private Long ticketCount = 50l;
 
     @Override
     public void run() {
-        while (true) {
-            synchronized (this) {
-                if (this.total > 0) {
-                    Thread thread = Thread.currentThread();
-                    log.debug("{}线程数为:{}出售第{}张票", thread.getName(), Thread.activeCount(), String.valueOf(this.total));
-                    ThreadLg.sleep(1000l);
-                    this.total = this.total - 1;
-                } else {
-                    break;
-                }
+        while (ticketCount > 0) {
+            sellTicket();
+            /**
+             当前线程休眠，好让其他线程继续执行
+             */
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public static void main(String[] args) {
-        Ticket ticket = new Ticket();
-        Thread thread1 = new Thread(ticket, "t1");
-        Thread thread2 = new Thread(ticket, "t2");
-        Thread thread3 = new Thread(ticket, "t3");
-        thread1.start();
-        thread2.start();
-        thread3.start();
+    public void sellTicket() {
+        //synchronized (this) {
+            if (ticketCount > 0) {
+                log.info(Thread.currentThread().getName() + "正在卖第：" + ticketCount + "张票" +
+                        ",还剩" + (ticketCount - 1) + "张票");
+                ticketCount--;
+            } else {
+                log.info("票已卖完");
+                return;
+            }
+        //}
     }
+
 }
+

@@ -1,7 +1,9 @@
 package com.itlg.serviceImpl.mybatisplus;
 
 import com.itlg.entity.bo.mybatisplus.UserOrderBO;
-import com.itlg.exception.R;
+import com.itlg.excepion.BusinessRuntimeException;
+import com.itlg.excepion.CodeMsg;
+import com.itlg.excepion.R;
 import com.itlg.mapper.mybatisplus.UserOrderBOMapper;
 import com.itlg.service.mybatisplus.UserOrderBOService;
 import lombok.AllArgsConstructor;
@@ -23,6 +25,7 @@ public class UserOrderBOServiceImpl implements UserOrderBOService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public R<List<UserOrderBO>> allUserOrder() {
+        int i = 1/0;
         return R.success(userOrderBOMapper.queryUserOrderBOPage());
     }
 }
