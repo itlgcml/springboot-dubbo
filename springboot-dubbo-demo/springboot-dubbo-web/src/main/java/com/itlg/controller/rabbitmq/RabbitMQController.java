@@ -31,4 +31,10 @@ public class RabbitMQController {
     public void returnConfirm(@RequestParam @Valid @NotNull(message = "msg不能为空")String msg) {
         rabbitMQService.testReturn(msg);
     }
+
+    @GetMapping(value = "/testTtl")
+    @ApiOperation(value = "测试testTtl")
+    public void testTtl(@RequestParam @Valid @NotNull(message = "msg不能为空")String msg) {
+        rabbitMQService.testTTL(msg);
+    }
 }

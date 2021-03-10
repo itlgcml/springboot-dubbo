@@ -14,6 +14,11 @@ import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class RabbitMQConfig {
+    public static final String EXCHANGE_NAME = "boot_topic_exchange";
+    public static final String QUEUE_NAME = "boot_queue";
+
+    public static final String TEST_EXCHANGE_CONFIRM = "test_exchange_confirm";
+    public static final String TEST_QUEUE_CONFIRM = "test_queue_confirm";
 
     @Value("${spring.rabbitmq.host}")
     private String host;
@@ -40,8 +45,8 @@ public class RabbitMQConfig {
         factory.setUsername(username);
         factory.setPassword(password);
         factory.setVirtualHost(virtualHost);
-        factory.setPublisherReturns(true);
         factory.setPublisherConfirms(true);
+        factory.setPublisherReturns(true);
         return factory;
     }
 
@@ -56,8 +61,7 @@ public class RabbitMQConfig {
     }
 
 
-    public static final String EXCHANGE_NAME = "boot_topic_exchange";
-    public static final String QUEUE_NAME = "boot_queue";
+
 
     //1.交换机
     @Bean("bootExchange")
@@ -75,6 +79,32 @@ public class RabbitMQConfig {
     @Bean
     public Binding bindQueueExchange(@Qualifier("bootQueue") Queue queue, @Qualifier("bootExchange") Exchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with("boot.#").noargs();
+    }
+
+
+
+    //1.交换机
+    @Bean("testExchangeConfirm")
+    public Exchange testExchangeConfirm() {
+        return ExchangeBuilder.directExchange(TEST_EXCHANGE_CONFIRM).durable(true).build();
+    }
+
+    //2.队列
+    @Bean("testQueueConfirm")
+    public Queue testQueueConfirm() {
+        return QueueBuilder.durable(TEST_QUEUE_CONFIRM).build();
+    }
+
+    //3.队列和交换机绑定关系
+    @Bean
+    public Binding testBindQueueExchange(@Qualifier("testQueueConfirm") Queue queue, @Qualifier("testExchangeConfirm") Exchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with("confirm").noargs();
+    }
+
+    //3.队列和交换机绑定关系
+    @Bean
+    public Binding test2BindQueueExchange(@Qualifier("testQueueConfirm") Queue queue, @Qualifier("testExchangeConfirm") Exchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with("").noargs();
     }
 
 

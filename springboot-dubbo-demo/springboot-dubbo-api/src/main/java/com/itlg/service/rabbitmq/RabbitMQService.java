@@ -19,4 +19,6 @@ public interface RabbitMQService {
      * 2. 如果消息没有路由到Queue，返回给消息发送方ReturnCallBack
      */
     void testReturn(String msg);
+
+    void testTTL(String msg);
 }
