@@ -12,6 +12,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+
+
 @Configuration
 public class RabbitMQConfig {
     public static final String EXCHANGE_NAME = "boot_topic_exchange";
