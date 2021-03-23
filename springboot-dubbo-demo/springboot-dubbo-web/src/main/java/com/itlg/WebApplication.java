@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@ImportResource("classpath:dubbo-customer.xml")
+@ImportResource("classpath:*.xml")
 public class WebApplication {
 
     public static void main(String[] args) {

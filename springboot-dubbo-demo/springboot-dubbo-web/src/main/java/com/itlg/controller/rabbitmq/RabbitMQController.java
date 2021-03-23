@@ -33,8 +33,14 @@ public class RabbitMQController {
     }
 
     @GetMapping(value = "/testTtl")
-    @ApiOperation(value = "测试testTtl")
+    @ApiOperation(value = "测试消息过期时间")
     public void testTtl(@RequestParam @Valid @NotNull(message = "msg不能为空")String msg) {
         rabbitMQService.testTTL(msg);
+    }
+
+    @GetMapping(value = "/testDeathInfo")
+    @ApiOperation(value = "测试消息成为死信后进入死信队列")
+    public void testDeathInfo(@RequestParam @Valid @NotNull(message = "msg不能为空")String msg) {
+        rabbitMQService.testDeathInfo(msg);
     }
 }

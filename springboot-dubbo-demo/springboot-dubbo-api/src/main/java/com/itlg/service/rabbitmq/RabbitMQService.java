@@ -20,5 +20,15 @@ public interface RabbitMQService {
      */
     void testReturn(String msg);
 
+    /**
+     * 设置过期时间
+     * @param msg
+     */
     void testTTL(String msg);
+
+    /**
+     * 消息变成死信
+     * @param msg
+     */
+    void testDeathInfo(String msg);
 }
