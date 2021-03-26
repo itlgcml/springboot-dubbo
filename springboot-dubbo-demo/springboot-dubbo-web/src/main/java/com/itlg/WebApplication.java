@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @ImportResource("classpath:*.xml")
+//idea暂存代码
 public class WebApplication {
 
     public static void main(String[] args) {
