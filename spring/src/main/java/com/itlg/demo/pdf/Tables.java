@@ -12,9 +12,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- * 一些示例
- */
+
 public class Tables {
     public static final String FONT = "pdf/华庚少女字体.ttf";
     public static final String DEST = "pdf/tables.pdf";

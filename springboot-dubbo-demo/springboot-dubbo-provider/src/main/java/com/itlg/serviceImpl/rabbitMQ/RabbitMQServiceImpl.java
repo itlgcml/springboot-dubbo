@@ -8,6 +8,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service("rabbitMQService")
 @Slf4j
 public class RabbitMQServiceImpl implements RabbitMQService {
@@ -17,8 +18,6 @@ public class RabbitMQServiceImpl implements RabbitMQService {
     private RabbitTemplate rabbitTemplate;
     @Autowired
     private MsgReturn msgReturn;
-
-
     //这种方法会有问题，需要多例
 //    @Override
 //    public void test(String msg) {
@@ -56,14 +55,19 @@ public class RabbitMQServiceImpl implements RabbitMQService {
 
     @Override
     public void testDeathInfo(String msg) {
-    /*     //消息过期后进入死信对了
-        msgConfirm.convertAndSendTtl("test_exchange_dlx", "test.dlx.#", msg);*/
-   /*     //消息长度超过限制后进入死信队列
+        //消息过期后进入死信对了
+        msgConfirm.convertAndSendTtl("test_exchange_dlx", "test.dlx.#", msg);
+  /*      //消息长度超过限制后进入死信队列
         for (int i = 0; i < 20; i++) {
             msgConfirm.convertAndSendTtl("test_exchange_dlx", "test.dlx.#", msg + i);
         }*/
-        //测试消息拒收后消息进入到死信队列
-        msgConfirm.convertAndSendTtl("test_exchange_dlx", "test.dlx.#", msg);
+        /*//测试消息拒收后消息进入到死信队列。这一种展示监听不关闭无法到死信队列
+        msgConfirm.convertAndSendTtl("test_exchange_dlx", "test.dlx.#", msg);*/
 
+    }
+
+    @Override
+    public void testOrderInfo(String msg) {
+        msgConfirm.convertAndSend("order_exchange", "order.123", msg);
     }
 }

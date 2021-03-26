@@ -23,24 +23,30 @@ public class RabbitMQController {
     @GetMapping(value = "/testConfirm")
     @ApiOperation(value = "测试Confirm")
     public void testConfirm(@RequestParam @Valid @NotNull(message = "msg") String msg) {
-       rabbitMQService.testConfirm(msg);
+        rabbitMQService.testConfirm(msg);
     }
 
     @GetMapping(value = "/testReturn")
     @ApiOperation(value = "测试return")
-    public void returnConfirm(@RequestParam @Valid @NotNull(message = "msg不能为空")String msg) {
+    public void returnConfirm(@RequestParam @Valid @NotNull(message = "msg不能为空") String msg) {
         rabbitMQService.testReturn(msg);
     }
 
     @GetMapping(value = "/testTtl")
     @ApiOperation(value = "测试消息过期时间")
-    public void testTtl(@RequestParam @Valid @NotNull(message = "msg不能为空")String msg) {
+    public void testTtl(@RequestParam @Valid @NotNull(message = "msg不能为空") String msg) {
         rabbitMQService.testTTL(msg);
     }
 
     @GetMapping(value = "/testDeathInfo")
     @ApiOperation(value = "测试消息成为死信后进入死信队列")
-    public void testDeathInfo(@RequestParam @Valid @NotNull(message = "msg不能为空")String msg) {
+    public void testDeathInfo(@RequestParam @Valid @NotNull(message = "msg不能为空") String msg) {
         rabbitMQService.testDeathInfo(msg);
+    }
+
+    @GetMapping(value = "/testOrder")
+    @ApiOperation(value = "测试延时队列")
+    public void testOrderInfo(@RequestParam @Valid @NotNull(message = "msg不能为空") String msg) {
+        rabbitMQService.testOrderInfo(msg);
     }
 }

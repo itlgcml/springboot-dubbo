@@ -112,9 +112,7 @@
             <entry key="x-dead-letter-exchange" value="order_exchange_dlx"/>
             <entry key="x-dead-letter-routing-key" value="dlx.order.cancel"/>
             <entry key="x-message-ttl" value="10000" value-type="java.lang.Integer"/>
-
         </rabbit:queue-arguments>
-
     </rabbit:queue>
     <rabbit:topic-exchange name="order_exchange">
         <rabbit:bindings>

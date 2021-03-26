@@ -31,4 +31,11 @@ public interface RabbitMQService {
      * @param msg
      */
     void testDeathInfo(String msg);
+
+
+    /**
+     * 延时队列测试
+     * @param msg
+     */
+    void testOrderInfo(String msg);
 }
