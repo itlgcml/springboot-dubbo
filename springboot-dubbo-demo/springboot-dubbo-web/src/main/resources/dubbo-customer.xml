@@ -18,4 +18,6 @@
     <dubbo:reference registry="local" id="userOrderBOService" interface="com.itlg.service.mybatisplus.UserOrderBOService" />
     <dubbo:reference registry="local" id="tbTreeOrderBOService" interface="com.itlg.service.tree.TbTreeOrderBOService" />
     <dubbo:reference registry="local" id="rabbitMQService" interface="com.itlg.service.rabbitmq.RabbitMQService" />
+    <dubbo:reference registry="local" id="redisService" interface="com.itlg.service.redis.RedisService" />
+
 </beans>

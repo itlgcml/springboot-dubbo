@@ -4,7 +4,6 @@ import com.itlg.config.MsgConfirm;
 import com.itlg.config.MsgReturn;
 import com.itlg.service.rabbitmq.RabbitMQService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +13,6 @@ import org.springframework.stereotype.Service;
 public class RabbitMQServiceImpl implements RabbitMQService {
     @Autowired
     private MsgConfirm msgConfirm;
-    @Autowired
-    private RabbitTemplate rabbitTemplate;
     @Autowired
     private MsgReturn msgReturn;
     //这种方法会有问题，需要多例
