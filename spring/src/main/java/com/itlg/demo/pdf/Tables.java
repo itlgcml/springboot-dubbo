@@ -25,7 +25,7 @@ public class Tables {
         Document document = new Document();
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(dest));
         document.setMargins(10,10,20,10);
-        com.riambsoft.report.pdf.HeaderFooter headerFooter= new com.riambsoft.report.pdf.HeaderFooter();
+        HeaderFooter headerFooter= new HeaderFooter();
         document.open();
 
 
