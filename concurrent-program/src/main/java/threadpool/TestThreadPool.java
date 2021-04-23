@@ -23,7 +23,7 @@ public class TestThreadPool {
                 ThreadPoolTask task = new ThreadPoolTask(longArray[i], 0l, latch);
                 executor.execute(task);
             }
-            //latch.await();
+            latch.await();
             System.out.println("结束了");
         } catch (Exception e) {
             e.printStackTrace();

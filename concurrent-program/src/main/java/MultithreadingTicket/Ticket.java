@@ -1,8 +1,7 @@
 package MultithreadingTicket;
 
-import lombok.Synchronized;
+
 import lombok.extern.slf4j.Slf4j;
-import test.ThreadLg;
 
 /**
  * 买票重新实现方法
@@ -20,7 +19,7 @@ public class Ticket implements Runnable {
              当前线程休眠，好让其他线程继续执行
              */
             try {
-                Thread.sleep(100);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -28,7 +27,7 @@ public class Ticket implements Runnable {
     }
 
     public void sellTicket() {
-        //synchronized (this) {
+        synchronized (this) {
             if (ticketCount > 0) {
                 log.info(Thread.currentThread().getName() + "正在卖第：" + ticketCount + "张票" +
                         ",还剩" + (ticketCount - 1) + "张票");
@@ -37,7 +36,7 @@ public class Ticket implements Runnable {
                 log.info("票已卖完");
                 return;
             }
-        //}
+        }
     }
 
 }

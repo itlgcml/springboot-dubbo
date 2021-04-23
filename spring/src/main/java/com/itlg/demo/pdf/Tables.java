@@ -14,18 +14,21 @@ import java.time.format.DateTimeFormatter;
 
 
 public class Tables {
-    public static final String FONT = "pdf/华庚少女字体.ttf";
     public static final String DEST = "pdf/tables.pdf";
 
     public static void main(String[] args) throws IOException, DocumentException {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
-        new Tables().createPdf(DEST);
+        createPdf(DEST);
     }
-    public void createPdf(String dest) throws IOException, DocumentException {
+    public static void createPdf(String dest) throws IOException, DocumentException {
         Document document = new Document();
-        PdfWriter.getInstance(document, new FileOutputStream(dest));
+        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(dest));
+        document.setMargins(10,10,20,10);
+        com.riambsoft.report.pdf.HeaderFooter headerFooter= new com.riambsoft.report.pdf.HeaderFooter();
         document.open();
+
+
 
         // 使用语言包字体
         BaseFont abf = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H",BaseFont.NOT_EMBEDDED);
@@ -37,7 +40,6 @@ public class Tables {
 
         Paragraph p = new Paragraph("个人简历表", new Font(abf, 12, Font.BOLD));
         p.setAlignment(Paragraph.ALIGN_CENTER);
-        document.add(p);
 
         PdfPTable table = new PdfPTable(8);
         table.setSpacingBefore(16f);
@@ -130,9 +132,19 @@ public class Tables {
         table.addCell(cell);
         document.add(table);
 
+        document.newPage();
+        document.add(p);
+
+
+        int indentation=0;
+        Image image = Image.getInstance("d:/1.png");
+        image.setAlignment(Image.UNDERLYING);
+        image.scaleAbsoluteHeight(500);
+
+        document.add(image);
         // ------------------------------------------------
 
-        table = new PdfPTable(4);
+       /* table = new PdfPTable(4);
         table.setSpacingBefore(32f);
 
         Font titleFont2 = new Font(abf, 14, Font.BOLD);
@@ -231,7 +243,7 @@ public class Tables {
                 "放下执着~~~~~（无相无色）\n" +
                 "我怎能 波澜不惊 去附和", font));
 
-
+*/
         document.close();
     }
 }
