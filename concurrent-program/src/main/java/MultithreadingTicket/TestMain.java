@@ -1,5 +1,8 @@
 package MultithreadingTicket;
 
+/**
+ * 多线程卖票
+ */
 public class TestMain {
     public static void main(String[] args) {
         Ticket sellTicketsThread = new Ticket();
@@ -13,7 +16,6 @@ public class TestMain {
         thirdThread.start();
         fourthThread.start();
         fifthThread.start();
-
     }
 }
 

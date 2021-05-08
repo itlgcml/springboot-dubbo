@@ -2,6 +2,9 @@ package test;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * lambda表达式
+ */
 @Slf4j(topic = "Test2")
 public class Test2Thread {
     public static void test1() {

@@ -1,5 +1,8 @@
 package test;
 
+/**
+ * 设置线程运行的优先级
+ */
 public class TestYield {
     public static void main(String[] args) {
         Runnable task1 = () -> {

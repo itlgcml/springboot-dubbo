@@ -6,7 +6,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://code.alibabatech.com/schema/dubbo
-    http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
     <!-- 提供方应用信息，用于计算依赖关系 -->
     <dubbo:application name="${dubbo.application.name}"/>
     <!-- 使用zookeeper注册中心暴露服务地址 -->
@@ -20,11 +22,14 @@
     <!-- 同模块的registry使用local，不同模块的使用远程的register -->
     <!--<dubbo:service registry="register" interface="com.wyj.service.DemoService" ref="demoService"/>-->
 
-    <dubbo:service registry="local" interface="com.itlg.service.mybatisplus.TbUserService" ref="tbUserService" timeout="3000"/>
-    <dubbo:service registry="local" interface="com.itlg.service.mybatisplus.UserOrderBOService" ref="userOrderBOService" timeout="3000"/>
-    <dubbo:service registry="local" interface="com.itlg.service.tree.TbTreeOrderBOService" ref="tbTreeOrderBOService" timeout="3000"/>
-    <dubbo:service registry="local" interface="com.itlg.service.rabbitmq.RabbitMQService" ref="rabbitMQService" timeout="3000"/>
-    <dubbo:service registry="local" interface="com.itlg.service.redis.RedisService" ref="redisService" timeout="3000"/>
+    <dubbo:service registry="local" interface="com.itlg.service.mybatisplus.TbUserService" ref="tbUserService"
+                   timeout="120000"/>
+    <dubbo:service registry="local" interface="com.itlg.service.mybatisplus.UserOrderBOService"
+                   ref="userOrderBOService" timeout="120000"/>
+    <dubbo:service registry="local" interface="com.itlg.service.tree.TbTreeOrderBOService" ref="tbTreeOrderBOService"/>
+    <dubbo:service registry="local" interface="com.itlg.service.rabbitmq.RabbitMQService" ref="rabbitMQService"/>
+    <dubbo:service registry="local" interface="com.itlg.service.redis.RedisService" ref="redisService"
+                   timeout="120000"/>
     <!-- 消费dubbo服务 -->
     <!--<dubbo:reference registry="register" interface="" id=""/>-->
 </beans>

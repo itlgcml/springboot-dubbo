@@ -7,7 +7,8 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class TestInterrupt {
-  /*  public static void main(String[] args) {
+    //休眠中打断,打断标记是false，会抛异常
+    /*public static void main(String[] args) {
         Thread thread = new Thread("t1") {
             @Override
             public void run() {
@@ -22,6 +23,7 @@ public class TestInterrupt {
     }*/
 
 
+    //非休眠方式打断线程，打断标记为true
     public static void main(String[] args) {
         Thread thread = new Thread("t1") {
             @Override

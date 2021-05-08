@@ -17,11 +17,12 @@ import java.io.IOException;
  * 4. 如果消息处理失败，则调用channel的basicNack()拒绝签收，broker重新发送给consumer
  */
 
+
 @Component
 @Slf4j
 public class AckListener implements ChannelAwareMessageListener {
     @Override
-    //@RabbitListener(queues = "test_queue_confirm")
+    @RabbitListener(queues = "test_queue_confirm")
     public void onMessage(Message message, Channel channel) throws Exception {
         long deliveryTag = message.getMessageProperties().getDeliveryTag();
         try {
@@ -33,7 +34,7 @@ public class AckListener implements ChannelAwareMessageListener {
             //3. 手动签收
             channel.basicAck(deliveryTag, true);
         } catch (IOException e) {
-            channel.basicNack(deliveryTag,true,true);
+            channel.basicNack(deliveryTag, true, true);
         }
     }
 }

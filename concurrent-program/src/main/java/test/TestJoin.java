@@ -2,6 +2,9 @@ package test;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 等待其他线程执行完成
+ */
 @Slf4j
 public class TestJoin {
     static int r1 = 0;
@@ -25,6 +28,8 @@ public class TestJoin {
         t1.join(1010l);
 
         long end = System.currentTimeMillis();
+        log.debug("r1: {} r2: {} cost: {}", r1, r2, end - start);
+        ThreadLg.sleep(1000L);
         log.debug("r1: {} r2: {} cost: {}", r1, r2, end - start);
     }
 }

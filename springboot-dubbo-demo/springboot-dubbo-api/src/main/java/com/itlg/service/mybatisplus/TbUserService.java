@@ -12,4 +12,6 @@ public interface TbUserService extends IService<TbUserBO> {
      * @return
      */
     R<List<TbUserBO>> findAllUser();
+
+    R testGrowth();
 }

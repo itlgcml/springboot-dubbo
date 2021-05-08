@@ -31,6 +31,12 @@ public class TbUserController {
         return tbuserService.findAllUser();
     }
 
+    @GetMapping(value = "/testGrowth")
+    @ApiOperation(value = "测试自增长")
+    public R testGrowth() {
+        return tbuserService.testGrowth();
+    }
+
     @GetMapping(value = "/allUserOrder")
     @ApiOperation(value = "mybatis一对多-查询所有用户以及其下订单")
     public R<List<UserOrderBO>> allUserOrder() {

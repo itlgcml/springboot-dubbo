@@ -1,4 +1,4 @@
-package com.itlg.config;
+package com.itlg.config.rabbitmq;
 
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import lombok.extern.slf4j.Slf4j;

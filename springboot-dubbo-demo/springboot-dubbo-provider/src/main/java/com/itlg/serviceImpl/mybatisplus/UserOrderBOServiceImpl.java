@@ -25,7 +25,7 @@ public class UserOrderBOServiceImpl implements UserOrderBOService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public R<List<UserOrderBO>> allUserOrder() {
-        int i = 1/0;
+        //int i = 1/0;
         return R.success(userOrderBOMapper.queryUserOrderBOPage());
     }
 }

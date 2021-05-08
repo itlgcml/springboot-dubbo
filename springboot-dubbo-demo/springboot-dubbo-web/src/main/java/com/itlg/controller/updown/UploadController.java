@@ -75,7 +75,7 @@ public class UploadController {
     }
 
     @PostMapping("/excelInput")
-    @ApiOperation(value = "导出excel")
+    @ApiOperation(value = "导入excel")
     public R<List<ExcelVO>> excelInput(MultipartFile file) {
         List<ExcelVO> excelVOList = new ArrayList<>();
         InputStream inputStream = null;

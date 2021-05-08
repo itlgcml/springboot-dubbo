@@ -17,6 +17,7 @@ import java.io.IOException;
  * 4. 如果消息处理失败，则调用channel的basicNack()拒绝签收，broker重新发送给consumer
  */
 
+
 @Component
 @Slf4j
 public class QosListener implements ChannelAwareMessageListener {
@@ -36,10 +37,8 @@ public class QosListener implements ChannelAwareMessageListener {
         } catch (IOException e) {
             //e.printStackTrace();
             //4.拒绝签收
-            /*
-            第三个参数：requeue：重回队列。如果设置为true，则消息重新回到queue，broker会重新发送该消息给消费端
-             */
-            channel.basicNack(deliveryTag,true,true);
+            //第三个参数：requeue：重回队列。如果设置为true，则消息重新回到queue，broker会重新发送该消息给消费端
+            channel.basicNack(deliveryTag, true, true);
         }
     }
 }

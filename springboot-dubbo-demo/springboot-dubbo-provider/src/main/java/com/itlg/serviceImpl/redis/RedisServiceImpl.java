@@ -16,6 +16,11 @@ public class RedisServiceImpl implements RedisService {
 
     @Override
     public R<Long> redisSinceGrowth() {
+        try {
+            Thread.sleep(2000l);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Long increment = redisTemplate.boundValueOps(redisSinceGrowth).increment(1);
         return R.success(increment);
     }

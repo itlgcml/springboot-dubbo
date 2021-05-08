@@ -11,6 +11,8 @@ import java.io.IOException;
 /**
  * 延时队列监听
  */
+
+
 @Component
 @Slf4j
 public class OrderListener implements ChannelAwareMessageListener {
@@ -27,12 +29,10 @@ public class OrderListener implements ChannelAwareMessageListener {
         } catch (IOException e) {
             //e.printStackTrace();
             //4.拒绝签收
-            /*
-            第三个参数：requeue：重回队列。如果设置为true，则消息重新回到queue，broker会重新发送该消息给消费端
-             */
+            //第三个参数：requeue：重回队列。如果设置为true，则消息重新回到queue，broker会重新发送该消息给消费端
             log.info("出现异常拒绝签收！");
             //不重回队列，才能路由到死信队列中
-            channel.basicNack(deliveryTag,true,false);
+            channel.basicNack(deliveryTag, true, false);
         }
     }
 }

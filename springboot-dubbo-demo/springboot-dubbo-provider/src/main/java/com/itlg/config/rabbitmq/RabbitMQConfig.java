@@ -1,4 +1,4 @@
-package com.itlg.config;
+package com.itlg.config.rabbitmq;
 
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;

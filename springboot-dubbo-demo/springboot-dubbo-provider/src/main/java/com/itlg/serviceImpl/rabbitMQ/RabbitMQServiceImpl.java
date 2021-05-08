@@ -1,7 +1,7 @@
 package com.itlg.serviceImpl.rabbitMQ;
 
-import com.itlg.config.MsgConfirm;
-import com.itlg.config.MsgReturn;
+import com.itlg.config.rabbitmq.MsgConfirm;
+import com.itlg.config.rabbitmq.MsgReturn;
 import com.itlg.service.rabbitmq.RabbitMQService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +42,7 @@ public class RabbitMQServiceImpl implements RabbitMQService {
 
     @Override
     public void testReturn(String msg) {
-        msgReturn.convertAndSend("test_exchange_confirm", "2222", msg);
+        msgReturn.convertAndSend("test_exchange_confirm", "", msg);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class RabbitMQServiceImpl implements RabbitMQService {
 
     @Override
     public void testDeathInfo(String msg) {
-        //消息过期后进入死信对了
+        //消息过期后进入死信队列
         msgConfirm.convertAndSendTtl("test_exchange_dlx", "test.dlx.#", msg);
   /*      //消息长度超过限制后进入死信队列
         for (int i = 0; i < 20; i++) {

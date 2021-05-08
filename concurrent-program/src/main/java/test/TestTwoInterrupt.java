@@ -1,8 +1,10 @@
 package test;
 
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 两阶段终止模式
+ */
 @Slf4j
 public class TestTwoInterrupt {
     public static void main(String[] args) throws InterruptedException {
