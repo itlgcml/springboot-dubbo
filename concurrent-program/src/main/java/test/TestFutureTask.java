@@ -3,6 +3,9 @@ package test;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
@@ -13,28 +16,30 @@ import java.util.concurrent.FutureTask;
 @Slf4j
 @Data
 public class TestFutureTask {
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        FutureTask<String> task = new FutureTask(() -> {
-            log.debug("running....");
-            Thread.sleep(1000);
-            return "t1";
-        });
-        Thread thread = new Thread(task, "t1");
-        thread.start();
-        FutureTask<String> task2 = new FutureTask(new Callable<String>() {
-            @Override
-            public String call() throws Exception {
+    public static void main(String[] args) {
+        Vector<FutureTask<String>> futureTaskList = new Vector<>();
+        for (int i = 0; i < 6; i++) {
+
+            FutureTask<String> task = new FutureTask(() -> {
                 log.debug("running....");
-                Thread.sleep(2000);
-                return "t2";
+                Thread.sleep(1000);
+                return "0";
+            });
+            Thread thread = new Thread(task, "t1");
+            thread.start();
+            futureTaskList.add(task);
+        }
+        futureTaskList.forEach(e -> {
+            try {
+                String s = e.get();
+                System.out.println(s);
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            } catch (ExecutionException executionException) {
+                executionException.printStackTrace();
             }
         });
-        Thread thread2 = new Thread(task2, "t2");
-        thread2.start();
-        log.debug("main线程日志----------");
-        log.debug(task2.get());
-        log.debug(task.get());//get方法需要该线程执行完成后才会执行
-
+        log.debug("main....");
 
     }
 }

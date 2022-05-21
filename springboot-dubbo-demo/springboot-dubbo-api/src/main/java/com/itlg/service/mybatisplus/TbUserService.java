@@ -14,4 +14,6 @@ public interface TbUserService extends IService<TbUserBO> {
     R<List<TbUserBO>> findAllUser();
 
     R testGrowth();
+
+    R testThreadPoolLatch();
 }

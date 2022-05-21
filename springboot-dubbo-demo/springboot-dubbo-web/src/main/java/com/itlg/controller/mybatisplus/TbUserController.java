@@ -1,5 +1,6 @@
 package com.itlg.controller.mybatisplus;
 
+import com.alibaba.fastjson.JSONObject;
 import com.itlg.config.SpringBeanTool;
 import com.itlg.entity.bo.mybatisplus.TbUserBO;
 import com.itlg.entity.bo.mybatisplus.UserOrderBO;
@@ -12,13 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.ContextLoader;
 
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServlet;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping(value = "/mybatisPlus")
@@ -40,11 +38,18 @@ public class TbUserController {
         return tbuserService.findAllUser();
     }
 
-    @GetMapping(value = "/testGrowth")
+    @GetMapping(value = "/testThreadPoolLatch")
+    @ApiOperation(value = "测试线程池批量修改数据库")
+    public R testThreadPoolLatch() {
+        return tbuserService.testThreadPoolLatch();
+    }
+
+    @GetMapping(value = "/testCon")
     @ApiOperation(value = "测试自增长")
     public R testGrowth() {
         return tbuserService.testGrowth();
     }
+
 
     @GetMapping(value = "/allUserOrder")
     @ApiOperation(value = "mybatis一对多-查询所有用户以及其下订单")
